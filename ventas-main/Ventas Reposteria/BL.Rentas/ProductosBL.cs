@@ -86,7 +86,7 @@ namespace BL.Rentas
 
             if (string.IsNullOrEmpty(producto.Descripcion) == true)
             {
-                resultado.Mensaje = "Ingrese una descripción";
+                resultado.Mensaje = "Ingrese una descripcion";
                 resultado.Exitoso = false;
             }
 
@@ -98,7 +98,7 @@ namespace BL.Rentas
 
             if (producto.Precio < 0)
             {
-                resultado.Mensaje = "El precio debe ser mayor que cero";
+                resultado.Mensaje = "El precio tiene que ser mayor que cero";
                 resultado.Exitoso = false;
             }
 
