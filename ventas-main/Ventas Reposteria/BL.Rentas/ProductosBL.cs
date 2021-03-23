@@ -68,6 +68,14 @@ namespace BL.Rentas
             var resultado = new Resultado();
             resultado.Exitoso = true;
 
+            if (producto == null)
+            {
+                resultado.Mensaje = " Agregue un producto valido ";
+                resultado.Exitoso = false;
+
+                return resultado;
+            }
+
             if (string.IsNullOrEmpty(producto.Descripcion) == true)
             {
                 resultado.Mensaje = "Ingrese una descripcion";
@@ -86,6 +94,12 @@ namespace BL.Rentas
                 resultado.Exitoso = false;
             }
 
+            if (producto.CategoriaId == 0)
+            {
+                resultado.Mensaje = " Seleccione una categoria ";
+                resultado.Exitoso = false;
+            }
+
             return resultado;
         }
     }
@@ -96,13 +110,15 @@ namespace BL.Rentas
         public string Descripcion { get; set; }
         public double Precio { get; set; }
         public int Existencia { get; set; }
+        public int CategoriaId { get; set; }
+        public Categoria Categoria { get; set; }
         public byte[] Foto { get; set; }
         public bool Activo { get; set; }
-    }
 
-    public class Resultado
-    {
-       public bool Exitoso { get; set; }
-       public string Mensaje { get; set; }
+
+        public Producto()
+        {
+            Activo = true;
+        }
     }
 }
