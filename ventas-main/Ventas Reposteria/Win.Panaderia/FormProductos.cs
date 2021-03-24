@@ -16,7 +16,7 @@ namespace Win.Panaderia
     {
         ProductosBL _productos;
         CategoriasBL _categorias;
-
+        TiposBL _tiposBL;
 
         public FormProductos()
         {
@@ -27,6 +27,9 @@ namespace Win.Panaderia
 
             _categorias = new CategoriasBL();
             listaCategoriasBindingSource.DataSource = _categorias.ObtenerCategorias();
+
+            _tiposBL = new TiposBL();
+            listaTiposBindingSource.DataSource = _tiposBL.ObtenerTipos();
         }
 
         private void productosBLDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -242,8 +245,8 @@ namespace Win.Panaderia
 
         private void toolStripButtonCancelar_Click(object sender, EventArgs e)
         {
+            _productos.CancelarCambios();
             DeshabilitarHabilitarBotones(true);
-            Eliminar(0);
         }
 
         private void button1_Click(object sender, EventArgs e)
