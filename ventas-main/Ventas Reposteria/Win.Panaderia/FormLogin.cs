@@ -57,10 +57,12 @@ namespace Win.Panaderia
             button1.Text = " Verificando ... ";
             Application.DoEvents();
 
-            var resultado = _seguridad.Autorizar(usuario, contrasena);
+            var usuaioDB = _seguridad.Autorizar(usuario, contrasena);
 
-            if (resultado == true)
+            if (usuaioDB != null)
             {
+                Utils.NombreUsuario = usuaioDB.Nombre;
+
                 this.Close();
             }
             else
