@@ -102,7 +102,7 @@ namespace BL.Rentas
 
             if (producto.Existencia < 0)
             {
-                resultado.Mensaje = "La existencia debe ser mayor que cero";
+                resultado.Mensaje = "La existencia tiene que ser mayor que cero";
                 resultado.Exitoso = false;
             }
 
